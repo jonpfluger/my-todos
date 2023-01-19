@@ -1,16 +1,21 @@
 {
-  "name": "Contact",
+  "name": "contact",
   "scripts": {
-    "dev": "",
-    "build": "",
-    "start": ""
+    "dev": "concurrently \"webpack --watch\" \"cd dist && npx live-server\"",
+    "build": "webpack --mode production"
   },
   "author": "2U",
   "license": "UNLICENSED",
   "devDependencies": {
-    
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^6.5.4"
   },
   "dependencies": {
-   
+    "concurrently": "^5.2.0"
   }
 }

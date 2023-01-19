@@ -1,4 +1,7 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -9,19 +12,24 @@ module.exports = () => {
       cards: './src/js/cards.js'
     },
 
-    // TODO: Add the correct output
     output: {
-      
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js'
     },
 
-    // TODO: Add the correct plugins
     plugins: [
-     
+      new HtmlWebpackPlugin({
+        template: './index.html'
+      })
     ],
 
-    // TODO: Add the correct modules
     module: {
-
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"]
+        },
+      ]
     }
   };
 };
